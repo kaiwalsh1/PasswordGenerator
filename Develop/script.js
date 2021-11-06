@@ -83,8 +83,6 @@ var specialArray = [
   '.',
 ];
 var passwordArray = [];
-// if (nextTag) {
-//   var secondTagName = 
 
 
 // function for button to generate password 
@@ -99,25 +97,56 @@ function generatePassword() {
   var uppercase = confirm('Click OK to confirm including uppercase characters.');
   var numeric = confirm('Click OK to confirm using numeric characters.');
   var special = confirm('Click OK to confirm using special characters.');
+  var counter = 0
+    if(lowercase){
+      var random = Math.floor(Math.random()*lowerCaseArray.length);
+      passwordArray.push(lowerCaseArray[random]);
+      console.log(passwordArray);
+      counter++;
+    };
 
-    
+    if(uppercase){
+      var random = Math.floor(Math.random()*upperCaseArray.length);
+      passwordArray.push(upperCaseArray[random]);
+      console.log(passwordArray);
+      counter++;
+    }
+
+  if(numeric){
+    var random = Math.floor(Math.random()*numericArray.length);
+    passwordArray.push(numericArray[random]);
+    console.log(passwordArray);
+    counter++;
   };
 
-//    Password length 8 < 128
-//    lowercase, uppercase, special characters
-// Validate input
+if(special){
+  var random = Math.floor(Math.random()*specialArray.length);
+  passwordArray.push(specialArray[random]);
+  console.log(passwordArray);
+  counter++;
+}
+var mainArray = lowerCaseArray.concat(upperCaseArray);
+var mainArray2 = mainArray.concat(specialArray);
+var mainArray3 = mainArray2.concat(numericArray);
+console.log(mainArray3);
+
+for(var i=0; i<characters - counter; i++){
+  var random = Math.floor(Math.random()*mainArray3.length);
+  passwordArray.push(mainArray3[random]);
+}
+console.log(passwordArray);
+return passwordArray.join("");
+};
+
+
 // Generate password with criteria
 // Display password on page 
-
-
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
