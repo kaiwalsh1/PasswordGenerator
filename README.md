@@ -4,6 +4,7 @@
 HTML, CSS, JavaScript
 
 ## Link
+https://kaiwalsh1.github.io/PasswordGenerator/
 
 ## Description
 We were given starter code that was then modified to create a functional application that would generate random passwords based on this criteria:
